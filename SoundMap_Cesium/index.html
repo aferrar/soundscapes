@@ -24,25 +24,27 @@
     <span>Background Information About The Project Goes Here</span>
     <br />
     <br />
-    <span><strong>Album Options</strong></span>
+    <span><strong>Album Options :</strong></span>
     <div class="nowrap">
-        <select id="album_option">
+        <select autocomplete="off" id="album_option">
             <option selected="selected" value="home">Please Select From Below</option>
             <option value="madagascar">Madagascar</option>
             <option value="carolina">Carolina</option>
             <option value="chippewa">Chippewa</option>
             <option value="antarctica">Antarctica</option>
         </select>
-      <div class="audio_player">
-        <audio id="audio_controls" controls>
-          <source id="audio_ogg" src="" type="audio/ogg">
-          <source id="audio_mp3" src="" type="audio/mp3">
-            Your browser does not support the audio format
-        </audio>
-      </div>
     </div>
-  <div id="loadingIndicator" class="cover">
-    <div id="loadingIcon" class="loadingIndicator"></div>
+    <div>
+        <input type="checkbox" id="switch1" name="switch1" class="switch" />
+        <label for="switch1">Hide Layer</label>
+    </div>
+    <div class="audio_player">
+    <audio id="audio_controls" controls>
+        <source id="audio_ogg" src="" type="audio/ogg">
+        <source id="audio_mp3" src="" type="audio/mp3">
+        Your browser does not support the audio format
+    </audio>
+    </div>
   </div>
 </div>
 
@@ -430,6 +432,10 @@
               var loadmp3 = document.getElementById("audio_controls");
               playmp3.src = "http://www.wildsanctuary.com/wildstore_previews/madagascar.mp3";
               loadmp3.load()
+              var toggstat = document.getElementById("switch1");
+              if (toggstat.checked = true) {
+                  toggstat.checked = false;
+              }
           } else if (selectedStyle === 'carolina') {
               viewer.flyTo(carolina);
               viewer.selectedEntity = carolina;
@@ -437,6 +443,10 @@
               var loadmp3 = document.getElementById("audio_controls");
               playmp3.src = "http://www.wildsanctuary.com/wildstore_previews/carolina_woods.mp3";
               loadmp3.load()
+              var toggstat = document.getElementById("switch1");
+              if (toggstat.checked = true) {
+                  toggstat.checked = false;
+              }
           } else if (selectedStyle === 'chippewa') {
               viewer.flyTo(chippewa);
               viewer.selectedEntity = chippewa;
@@ -444,6 +454,10 @@
               var loadmp3 = document.getElementById("audio_controls");
               playmp3.src = "http://www.wildsanctuary.com/wildstore_previews/chippewa_nights.mp3";
               loadmp3.load()
+              var toggstat = document.getElementById("switch1");
+              if (toggstat.checked = true) {
+                  toggstat.checked = false;
+              }
           } else if (selectedStyle === 'antarctica') {
             viewer.flyTo(antarctica);
               viewer.selectedEntity = antarctica;
@@ -451,11 +465,24 @@
               var loadmp3 = document.getElementById("audio_controls");
               playmp3.src = "http://www.wildsanctuary.com/wildstore_previews/antarctica.mp3";
               loadmp3.load()
+              var toggstat = document.getElementById("switch1");
+              if (toggstat.checked = true) {
+                  toggstat.checked = false;
+              }
           }
-        }       
+        } 
+
+        var toggleStatus = document.getElementById("switch1");
+        function toggleLayer() {
+            var toggstat = switch1.checked;
+            if (toggstat = true) {
+                var ent = viewer.selectedEntity;
+                ent.show = !ent.show;
+            }
+        }      
 
 tileStyle.addEventListener('change', set3DTileStyle);
-
+toggleStatus.addEventListener('change', toggleLayer);
     }());
 </script>
 
