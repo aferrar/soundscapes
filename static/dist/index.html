@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Use correct character set. -->
+    <meta charset="utf-8">
+    <!-- Tell IE to use the latest, best version. -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <!-- Make the application on mobile take up the full browser screen and disable user scaling. -->
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>New York City</title>
+</head>
+<body>
+<!-- A container for the Cesium Viewer to live in. -->
+<div id="cesiumContainer"></div>
+
+<!-- Some input elements for our application. -->
+<div class="backdrop" id="menu">
+    <h2>Mapping Soundscapes</h2>
+    <span>Background Information About The Project Goes Here</span>
+    <br />
+    <br />
+    <span><strong>Album Options :</strong></span>
+    <div class="nowrap">
+        <select autocomplete="off" id="album_option">
+            <option selected="selected" value="home">Please Select From Below</option>
+            <option value="madagascar">Madagascar</option>
+            <option value="carolina">Carolina</option>
+            <option value="chippewa">Chippewa</option>
+            <option value="antarctica">Antarctica</option>
+        </select>
+    </div>
+    <div>
+        <input type="checkbox" id="switch1" name="switch1" class="switch" />
+        <label for="switch1">Hide Layer</label>
+    </div>
+    <div class="audio_player">
+    <audio id="audio_controls" controls>
+        <source id="audio_ogg" src="" type="audio/ogg">
+        <source id="audio_mp3" src="" type="audio/mp3">
+        Your browser does not support the audio format
+    </audio>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="app.js"></script></body>
+</html>
